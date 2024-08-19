@@ -3,17 +3,16 @@
 import { adminDb } from "@/firebase-admin";
 import { auth } from "@clerk/nextjs/server";
 
-// server actions are incredibily powerful
-
 export async function createNewDocument(){
     
     auth().protect();
-
+    // get user details
+    // Remember: have to update Type defintions for sessionClaims
     const { sessionClaims } = await auth();
 
     const docCollectionRef = adminDb.collection("documents");
     const docRef = await docCollectionRef.add({
-        title: "New Doc"
+        title: "🆕 ThinkTank Document",
     });
 
     await adminDb

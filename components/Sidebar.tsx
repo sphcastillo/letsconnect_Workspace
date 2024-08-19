@@ -29,14 +29,16 @@ function Sidebar() {
                 </SheetTrigger>
                 <SheetContent side="left">
                 <SheetHeader>
-                    <SheetTitle>Menu</SheetTitle>
+                    <SheetTitle>ThinkTank</SheetTitle>
                     <div>{menuOptions}</div>
                 </SheetHeader>
                 </SheetContent>
             </Sheet>
         </div>
 
-        <div className="hidden md:inline">{menuOptions}</div>
+        <div className="hidden md:inline">
+          {menuOptions}
+        </div>
     </div>
   );
 }
