@@ -32,8 +32,11 @@ function Document({ id }: { id: string }) {
   };
   return (
     <div>
-      <div>
-        <form onSubmit={updateTitle}>
+      <div className="flex max-w-6xl mx-auto justify-between pb-5">
+        <form 
+            className="flex flex-1 space-x-2"
+            onSubmit={updateTitle}
+        >
           {/* update title of Doc */}
           <Input value={input} onChange={(e) => setInput(e.target.value)} />
           <Button disabled={isUpdating} type="submit">
