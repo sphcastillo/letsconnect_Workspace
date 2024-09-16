@@ -14,6 +14,17 @@ import { collectionGroup, query, where, DocumentData } from "firebase/firestore"
 import { db } from "@/firebase";
 import { useEffect, useState } from "react";
 import SidebarOption from "./SidebarOption";
+import { Poppins } from "next/font/google";
+
+const poppins_thin = Poppins({
+  weight: '300',
+  subsets: ['latin']
+});
+
+const poppins_bold = Poppins({
+  weight: '500',
+  subsets: ['latin']
+})
 
 interface RoomDocument extends DocumentData {
   createdAt: string;
@@ -89,12 +100,12 @@ function Sidebar() {
       <div className="flex py-4 flex-col space-y-4 md:max-w-36">
         {/* My Documents */}
         {groupedData.owner.length === 0 ? (
-          <h2 className="text-gray-500 font-semibold text-sm">
+          <h2 className={`${poppins_bold.className} text-gray-500 font-semibold text-md`}>
             No ThinkTank documents found
           </h2>
         ) : (
           <>
-            <h2 className="text-gray-500 font-semibold text-sm">
+            <h2 className={`${poppins_bold.className} text-gray-500 font-semibold text-md`}>
               My ThinkTank Documents
             </h2>
             {groupedData.owner.map((doc) => (
@@ -143,7 +154,7 @@ function Sidebar() {
   );
 
   return (
-    <div className="p-2 md:p-5 bg-gray-200 relative">
+    <div className="p-2 md:p-5 bg-gray-50 relative">
         <div className="md:hidden">
             <Sheet>
                 <SheetTrigger>

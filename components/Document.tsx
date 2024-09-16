@@ -6,6 +6,23 @@ import { Button } from "./ui/button";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import { PT_Sans, Poppins } from "next/font/google";
+
+const poppins_thin = Poppins({
+  weight: '300',
+  subsets: ['latin']
+});
+
+const poppins_bold = Poppins({
+  weight: '500',
+  subsets: ['latin']
+});
+
+const ptSans = PT_Sans({
+  weight: '400',
+  subsets: ['latin']
+});
+
 
 function Document({ id }: { id: string }) {
   const [data, loading, error] = useDocumentData(doc(db, "documents", id));
@@ -38,8 +55,8 @@ function Document({ id }: { id: string }) {
             onSubmit={updateTitle}
         >
           {/* update title of Doc */}
-          <Input value={input} onChange={(e) => setInput(e.target.value)} />
-          <Button disabled={isUpdating} type="submit">
+          <Input value={input} onChange={(e) => setInput(e.target.value)} className={poppins_thin.className} />
+          <Button disabled={isUpdating} type="submit" className={`${ptSans.className} tracking-wider`}>
             {isUpdating ? "Updating..." : "Update"}
           </Button>
 
