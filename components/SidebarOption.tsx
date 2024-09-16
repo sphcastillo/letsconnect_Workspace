@@ -3,17 +3,17 @@ import { doc } from "firebase/firestore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import {Poppins} from "next/font/google";
+import { Poppins, PT_Sans } from "next/font/google";
 
 const poppins_thin = Poppins({
   weight: '300',
   subsets: ['latin']
 });
 
-const poppins_bold = Poppins({
-  weight: '500',
+const ptSans = PT_Sans({
+  weight: '400',
   subsets: ['latin']
-})
+});
 
 function SidebarOption({ href, id }: { href: string; id: string }) {
   const [data, loading, error] = useDocumentData(doc(db, "documents", id));
@@ -31,7 +31,7 @@ function SidebarOption({ href, id }: { href: string; id: string }) {
             ${loading ? "animate-pulse" : ""}
             `}
     >
-      <p className={`${poppins_thin.className} truncate`}>{data.title}</p>
+      <p className={`${ptSans.className} truncate`}>{data.title}</p>
     </Link>
   );
 }
