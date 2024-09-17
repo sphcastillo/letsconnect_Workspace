@@ -7,6 +7,7 @@ import { updateDoc, doc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { PT_Sans, Poppins } from "next/font/google";
+import Editor from "./Editor";
 
 const poppins_thin = Poppins({
   weight: '300',
@@ -71,7 +72,7 @@ function Document({ id }: { id: string }) {
         {/* Avatars */}
       </div>
 
-      {/* Collaborative Editor */}
+      <Editor />
     </div>
   );
 }
