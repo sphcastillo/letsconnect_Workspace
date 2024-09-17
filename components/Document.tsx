@@ -10,6 +10,9 @@ import { PT_Sans, Poppins } from "next/font/google";
 import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
+import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
+import Avatars from "./Avatars";
 
 const poppins_thin = Poppins({
   weight: '300',
@@ -66,17 +69,23 @@ function Document({ id }: { id: string }) {
 
           {/* IF */}
           {isOwner && (
-            <DeleteDocument />
+            <>
+              <InviteUser />
+              <DeleteDocument />
+            </>
           )}
-          {/* isOwner && InviteUser, DeleteDocument */}
+
         </form>
       </div>
 
-      <div>
+      <div className="flex max-w-6xl mx-auto justify-between items-center mb-5">
         {/* MangeUsers */}
+        <ManageUsers />
 
         {/* Avatars */}
+        <Avatars />
       </div>
+      <hr className="pb-10"/>
 
       <Editor />
     </div>

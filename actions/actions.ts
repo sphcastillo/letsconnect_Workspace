@@ -3,6 +3,7 @@
 import { adminDb } from "@/firebase-admin";
 import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
+import { error } from "console";
 
 export async function createNewDocument(){
     
@@ -61,6 +62,51 @@ export async function deleteDocument(roomId: string){
 
     } catch(error){
         console.error("Error deleting document", error);
-        return { success: false};
+        return { success: false };
+    }
+}
+
+export async function inviteUsertoDocument(roomId: string, email: string){
+    auth().protect();
+    console.log("inviteUsertoDocument", roomId, email);
+
+    try {
+        await adminDb
+            .collection('users')
+            .doc(email)
+            .collection('rooms')
+            .doc(roomId)
+            .set({
+                userId: email,
+                role: 'editor',
+                createdAt: new Date(),
+                roomId: roomId,
+            });
+        
+        return { success: true };
+
+    } catch(error){
+        console.error("Error inviting user to document", error);
+        return { success: false };
+    }
+}
+export async function removeUserFromDocument(roomid: string, email: string){
+    auth().protect();
+
+    console.log("removeUserFromDocument", roomid, email);
+
+    try {
+        await adminDb
+            .collection('users')
+            .doc(email)
+            .collection('rooms')
+            .doc(roomid)
+            .delete();
+        
+        return { success: true };
+
+    } catch(error){
+        console.error("Error removing user from document", error);
+        return { success: false };
     }
 }

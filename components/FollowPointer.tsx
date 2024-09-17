@@ -16,6 +16,7 @@ function FollowPointer({
   };
 }) {
   const color = stringToColor(info.email || "1");
+  
   return (
     <motion.div     
         className="h-4 w-4 rounded-full absolute z-50"
