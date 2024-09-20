@@ -6,7 +6,7 @@ Welcome to ThinkTank, the ultimate productivity app that empowers you to capture
 
 ## Requirements
 
-Accounts with Clerk, Firebase, CloudFlare
+Accounts with Clerk, Firebase, CloudFlare, Open AI
 
 ## Technologies & Methods Used
 
