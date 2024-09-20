@@ -15,7 +15,7 @@
     "@blocknote/shadcn": "^0.15.7",
     "@clerk/nextjs": "^5.2.4",
     "@liveblocks/client": "^2.7.1",
-    "@liveblocks/node": "^2.7.1",
+    "@liveblocks/node": "^2.7.2",
     "@liveblocks/react": "^2.7.1",
     "@liveblocks/yjs": "^2.7.1",
     "@radix-ui/react-avatar": "^1.1.0",
