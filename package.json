@@ -29,7 +29,7 @@
     "firebase-admin": "^12.2.0",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.408.0",
-    "next": "14.2.5",
+    "next": "^14.2.13",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
@@ -43,12 +43,14 @@
     "yjs": "^13.6.19"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
-    "eslint": "^8",
+    "eslint": "^9.11.0",
     "eslint-config-next": "14.2.5",
+    "minimatch": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
