@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, useUser } from "@clerk/nextjs";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "ThinkTank",
-  description: "Capture your ideas seamlessly, collaborate effortlessly with your team or friends, and harness the power of AI to bring your vision to life—all in one intuitive platform.",
+  description:
+    "Capture your ideas seamlessly, collaborate effortlessly with your team or friends, and harness the power of AI to bring your vision to life—all in one intuitive platform.",
 };
 
 export default function RootLayout({
@@ -19,6 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+
           <Header />
           <div className="flex min-h-screen">
             <Sidebar />
@@ -28,9 +30,10 @@ export default function RootLayout({
             </div>
           </div>
 
-          <Toaster position="top-center"/>
-          </body>
+          <Toaster position="top-center" />
+        </body>
       </html>
     </ClerkProvider>
   );
 }
+
